@@ -214,13 +214,42 @@ void dijkstra(int A[][3], int n, int m, int v0, int vf, int crescent) { // A -> 
 	printSolution(dist, n, m, v0, vf, crescent);
 } 
 
+void printHelp() {
+	printf("### Lista de Comandos ###\n");
+	printf("-> 'make help'\n");
+	printf("   Mostra o help.\n");
+	printf("-> 'make compile'\n");
+	printf("   Compila o programa.\n");
+	printf("-> 'make execute1'\n");
+	printf("   Calcula a distância mínima do vértice 1 até o vértice 5.\n");
+	printf("-> 'make execute2'\n");
+	printf("   Calcula a distância mínima do vértice 1 até os demais.\n");
+	printf("-> 'make execute3'\n");
+	printf("   Calcula a distância mínima do vértice 1 até os demais e imprime em ordem crescente.\n");
+	printf("-> 'make all'\n");
+	printf("   Executa todos os comandos acima.\n");
+	printf("-> './djikstra -f <arquivo> -i <v0> -l <vf>'\n");
+	printf("   Calcula a distância mínima do vértice v0 até o vértice vf.\n");
+	printf("-> './djikstra -f <arquivo> -i <v0>'\n");
+	printf("   Calcula a distância mínima do vértice v0 até os demais.\n");
+	printf("-> './djikstra -f -s <arquivo> -i <v0>'\n");
+	printf("   Calcula a distância mínima do vértice v0 até os demais e imprime em ordem crescente.\n");
+}
+
 int main(int argc, char *argv[]) {
   	//char *result;
   	int result;
   	int i, j, n, m, v0 = -1, vf = -1, crescent = 0;
   	char *name_arq;
+
+  	for(i = 0; i < argc; i++) {
+    	if(strcmp(argv[i], "-h") == 0) {
+    		printHelp();
+    		return 0;
+    	}
+   }
     
-    for(i = 0; i < argc; i++) {
+   for(i = 0; i < argc; i++) {
     	if(strcmp(argv[i], "-f") == 0) {
     		if(strcmp(argv[i+1], "-s") == 0){
     			crescent = 1;
@@ -230,21 +259,21 @@ int main(int argc, char *argv[]) {
     			name_arq = argv[i+1];
 	    	}
     	}	
-    }
+   }
 
-    for(i = 0; i < argc; i++) {
+   for(i = 0; i < argc; i++) {
     	if(strcmp(argv[i], "-i") == 0) {
     		v0 = atoi(argv[i+1]);
     	}
-    }
+   }
 
-    for(i = 0; i < argc; i++) {
+   for(i = 0; i < argc; i++) {
     	if(strcmp(argv[i], "-l") == 0) {
     		vf = atoi(argv[i+1]);
     	}
-    }
+   }
 
-    FILE *arq;
+   FILE *arq;
 	arq = fopen(name_arq, "rt");
 
 	if (arq == NULL)
@@ -262,7 +291,6 @@ int main(int argc, char *argv[]) {
 	fclose (arq);
 
 	dijkstra(A, n, m, v0, vf, crescent);
-	
 
-    return 0;
+   return 0;
 }
