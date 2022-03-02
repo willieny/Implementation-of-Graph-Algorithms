@@ -164,17 +164,18 @@ void printSolution(int dist[], int n, int m, int v0, int vf, int crescent) {
 		int v[n+1];
 		for(int i = 1; i <= n; i++) {
 			v[i] = i;
-			printf("i: %d\n", i);
 		}
 		bubbleSort(dist, v, n+1);
 		for(int i = 1; i <= n; i++) {
 			printf("%d:%d ", v[i], dist[i]);
 		}
+		printf("\n");
 	}
 	else {
 		for(int i = 1; i <= n; i++) {
 			printf("%d:%d ", i, dist[i]);
 		}
+		printf("\n");
 	}
 }
 
