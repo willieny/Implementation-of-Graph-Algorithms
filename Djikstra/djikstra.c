@@ -128,48 +128,9 @@ int neighborWeight(int A[][3], int m, int v, int u) {
 	return -1;
 }
 
-void swap(int *xp, int *yp)
-{
-    int temp = *xp;
-    *xp = *yp;
-    *yp = temp;
-}
-  
-void bubbleSort(int arr[], int v[], int n)
-{
-   int i, j;
-   int swapped;
-   for (i = 1; i < n-1; i++)
-   {
-     swapped = 0;
-     for (j = 1; j < n-i; j++)
-     {
-        if (arr[j] > arr[j+1])
-        {
-           swap(&arr[j], &arr[j+1]);
-           swap(&v[j], &v[j+1]);
-           swapped = 1;
-        }
-     }
-     if (swapped == 0)
-        break;
-   }
-}
-
 void printSolution(int dist[], int n, int m, int v0, int vf, int crescent) {
 	if(vf != -1) {
 		printf("%d\n", dist[vf]);
-	}
-	else if(crescent == 1) {
-		int v[n+1];
-		for(int i = 1; i <= n; i++) {
-			v[i] = i;
-		}
-		bubbleSort(dist, v, n+1);
-		for(int i = 1; i <= n; i++) {
-			printf("%d:%d ", v[i], dist[i]);
-		}
-		printf("\n");
 	}
 	else {
 		for(int i = 1; i <= n; i++) {
@@ -224,16 +185,8 @@ void printHelp() {
 	printf("   Calcula a distância mínima do vértice 1 até o vértice 5.\n");
 	printf("-> 'make execute2'\n");
 	printf("   Calcula a distância mínima do vértice 1 até os demais.\n");
-	printf("-> 'make execute3'\n");
-	printf("   Calcula a distância mínima do vértice 1 até os demais e imprime em ordem crescente.\n");
 	printf("-> 'make all'\n");
 	printf("   Executa todos os comandos acima.\n");
-	printf("-> './djikstra -f <arquivo> -i <v0> -l <vf>'\n");
-	printf("   Calcula a distância mínima do vértice v0 até o vértice vf.\n");
-	printf("-> './djikstra -f <arquivo> -i <v0>'\n");
-	printf("   Calcula a distância mínima do vértice v0 até os demais.\n");
-	printf("-> './djikstra -f -s <arquivo> -i <v0>'\n");
-	printf("   Calcula a distância mínima do vértice v0 até os demais e imprime em ordem crescente.\n");
 }
 
 int main(int argc, char *argv[]) {
