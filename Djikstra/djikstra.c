@@ -128,9 +128,24 @@ int neighborWeight(int A[][3], int m, int v, int u) {
 	return -1;
 }
 
-void printSolution(int dist[], int n, int m, int v0, int vf, int crescent) {
+void printSmallestWay(int dist[], int v0, int vf, int prev[]) {
+	if(vf == v0) {
+		return;
+	}
+	else {
+		printSmallestWay(dist, v0, prev[vf], prev);
+		printf("(%d, %d) ", prev[vf], vf);
+	}
+}
+
+void printSolution(int dist[], int n, int m, int v0, int vf, int crescent, int prev[]) {
 	if(vf != -1) {
-		printf("%d\n", dist[vf]);
+		if(crescent == 1) {
+			printSmallestWay(dist, v0, vf, prev);
+		}
+		else {
+			printf("%d\n", dist[vf]);
+		}
 	}
 	else {
 		for(int i = 1; i <= n; i++) {
@@ -172,21 +187,23 @@ void dijkstra(int A[][3], int n, int m, int v0, int vf, int crescent) { // A -> 
 			}
 		}
 	}
-	printSolution(dist, n, m, v0, vf, crescent);
+	printSolution(dist, n, m, v0, vf, crescent, prev);
 } 
 
 void printHelp() {
 	printf("### Lista de Comandos ###\n");
 	printf("-> 'make help'\n");
-	printf("   Mostra o help.\n");
+	printf("    Mostra o help.\n");
 	printf("-> 'make compile'\n");
-	printf("   Compila o programa.\n");
+	printf("    Compila o programa.\n");
 	printf("-> 'make execute1'\n");
-	printf("   Calcula a distância mínima do vértice 1 até o vértice 5.\n");
+	printf("    Calcula a distância mínima do vértice 1 até o vértice 5.\n");
 	printf("-> 'make execute2'\n");
-	printf("   Calcula a distância mínima do vértice 1 até os demais.\n");
+	printf("    Calcula a distância mínima do vértice 1 até os demais.\n");
+	printf("-> 'make execute3'\n");
+	printf("    Imprime o caminho mínimo do vértice 1 até o vértice 5.\n");
 	printf("-> 'make all'\n");
-	printf("   Executa todos os comandos acima.\n");
+	printf("    Executa todos os comandos acima.\n");
 }
 
 int main(int argc, char *argv[]) {
