@@ -30,7 +30,7 @@ u v w
 u v w
 ...
 ````
-**Saída:** Matriz nxn das distâncias mínimas entre cada par de vértices, onde 'M[i][j]' é a menor distância partindo do vértice 'i' até o vértice 'j':  
+**Saída:** Matriz nxn das distâncias mínimas entre cada par de vértices, onde 'M[i][j]' é a menor distância partindo do vértice 'i' até o vértice 'j' (essa distância será 'INF', caso não exista um caminho que parte de 'i' até 'j'):  
 ````
 M[i][j]    M[i][j]    M[i][j]
 M[i][j]    M[i][j]    M[i][j]
