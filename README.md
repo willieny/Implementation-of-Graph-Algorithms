@@ -21,7 +21,7 @@ Caso receba também o vértice final, a saída será apenas a distância mínima
 
 Caso receba ainda o parâmetro '-s', a saída será a sequência de arestas do menor caminho entre o vértice inicial e o vértice final:
 ````
-(v0, v1) (v2, v3) ... (vn-1, vf)
+(v0, v1) (v1, v2) ... (vn-1, vf)
 ````
 
 **Execução:** Para compilar o programa e executar alguns exemplos, execute o comando ```` make all ```` no diretório 'Djikstra'.
