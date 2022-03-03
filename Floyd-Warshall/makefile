@@ -1,4 +1,4 @@
-all: help execute1 execute2 execute3 execute4
+all: help execute1 execute2 execute3
 
 compile: 
 	gcc floyd-warshall.c -o floyd-warshall
