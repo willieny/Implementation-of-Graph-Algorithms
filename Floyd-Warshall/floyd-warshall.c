@@ -63,7 +63,7 @@ void floydWarshall(int A[][3], int n, int m, int v0, int vf, int crescent) { // 
 
 	for(k = 1; k <= n; k++) {
 		for(i = 1;i <= n; i++){
-			for(j = 0; j <= n; j++){
+			for(j = 1; j <= n; j++){
 				if(M[i][j] > M[i][k] + M[k][j]) {
 					M[i][j] = M[i][k] + M[k][j];
 				}
