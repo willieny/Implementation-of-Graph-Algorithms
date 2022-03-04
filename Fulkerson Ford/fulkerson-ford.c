@@ -119,7 +119,7 @@ int main() {
       capacity[a][b] = p;
   }
 
-  printf("Fluxo máximo entre os vértices 1 e 6: %d\n", fordFulkerson(s, t));
+  printf("Fluxo máximo entre os vértices %d e %d: %d\n", s, t, fordFulkerson(s, t));
 }
 
 
