@@ -70,8 +70,8 @@ void BellmanFord(struct Graph* graph, int source)
  
 int main()
 {
-    int V,E; 
-    scanf("%d %d",&V, &E);
+    int V,E,S; 
+    scanf("%d %d %d",&V, &E, &S);
  
     struct Graph* graph = createGraph(V, E);
  
@@ -82,7 +82,7 @@ int main()
         scanf("%d",&graph->edge[i].weight);
     }
  
-    BellmanFord(graph, 0);
+    BellmanFord(graph, S);
  
     return 0;
 }
