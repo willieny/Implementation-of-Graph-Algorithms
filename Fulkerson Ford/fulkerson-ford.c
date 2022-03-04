@@ -103,14 +103,14 @@ int pathfordFulkerson(int source, int sink) {
 int main() {
 
   int a, b, p;
+  int s, t;
   for (int i = 1; i <=n; i++) {
     for (int j = 1; j <=n; j++) {
       capacity[i][j] = 0;
     }
   }
 
-  scanf("%d", &n);
-  scanf("%d", &e);
+  scanf("%d %d %d %d", &n, &e, &s, &t);
   
   for (int i = 1; i <= e; i++) {
       scanf("%d", &a);
@@ -118,15 +118,7 @@ int main() {
       scanf("%d", &p);
       capacity[a][b] = p;
   }
-  /*
-  for (int i = 1; i <=n; i++) {
-    for (int j = 1; j <=n; j++) {
-      printf("%d ", capacity[i][j]);
-    }
-    printf("\n");
-  }*/
 
-  int s = 1, t = 6;
   printf("Fluxo máximo entre os vértices 1 e 6: %d\n", fordFulkerson(s, t));
 }
 
