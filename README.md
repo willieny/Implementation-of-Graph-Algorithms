@@ -49,3 +49,35 @@ i:d i:d i:d ...
 Caso receba também o vértice final, a saída será apenas a distância mínima 'd' entre o vértice inicial e o final.
 
 **Execução:** Para compilar o programa e executar alguns exemplos, execute o comando ```` make all ```` no diretório 'Floyd-Warshall'.
+
+## Algoritmo de Bellman-Ford
+**Entrada:** Grafo não direcionado em arquivo .in no seguinte formato, sendo 'n' o número de vértices, 'm' o número de arestas, 'p' o vértice de partida e 'u v w' uma aresta que parte do vértice 'u' a 'v' com peso 'w':
+````
+n m
+u v w
+u v w
+u v w
+...
+````
+**Saída:** A saída será a lista de distâncias mínimas entre o vértice inicial e os demais no seguinte formato, sendo 'i' o vértice e 'd' a distância mínima até ele a partir do vértice inicial:
+````
+i:d i:d i:d ...
+````
+
+**Execução:** Para compilar o programa e executar alguns exemplos, execute o comando ```` make all ```` no diretório 'Bellman-Ford'.
+
+  ## Algoritmo de Fulkerson-Ford
+**Entrada:** Grafo direcionado em arquivo .in no seguinte formato, sendo 'n' o número de vértices, 'm' o número de arestas, 'p' o vértice de partida, 'c' o vértice de chegada e 'u v w' uma aresta que parte do vértice 'u' a 'v' com peso 'w':
+````
+n m
+u v w
+u v w
+u v w
+...
+````
+**Saída:** A saída resulta no fluxo máximo entre os vértices 'p' e 'c' no seguinte formato, sendo 'm' o fluxo máximo:
+````
+Fluxo máximo entre os vértices p e c: m
+````
+
+**Execução:** Para compilar o programa e executar alguns exemplos, execute o comando ```` make all ```` no diretório 'Fulkerson-Ford'
